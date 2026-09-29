@@ -70,12 +70,26 @@ h1 { margin:8px 0 4px; font-size:28px; font-weight:700; line-height:1.05; }
   position: relative;
   background: #1a1a1a;
   min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 .thumb img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 0;
   object-fit: contain; /* full dish visible, no strip crop */
   object-position: center;
+  background: #1a1a1a;
+}
+.thumb .disclaimer {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 3px 4px 4px;
+  font-family: system-ui, sans-serif;
+  font-size: 8px;
+  color: var(--muted);
+  line-height: 1.2;
+  text-align: center;
   background: #1a1a1a;
 }
 .meta {
@@ -87,13 +101,7 @@ h2 { margin:0; font-size: clamp(12px, 2.1vh, 16px); color: var(--accent); line-h
 .price { font-family:system-ui,sans-serif; font-weight:700; font-size: clamp(11px, 1.8vh, 14px); white-space:nowrap; }
 .section { margin-top:3px; font-family:system-ui,sans-serif; font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:#9a8572; }
 .note { margin-top:4px; font-family:system-ui,sans-serif; font-size:9px; color:var(--muted); font-style:italic; line-height:1.25; }
-.disclaimer {
-  margin-top:4px;
-  font-family:system-ui,sans-serif;
-  font-size:9px;
-  color:var(--muted);
-  line-height:1.25;
-}
+
 
 footer {
   flex: 0 0 auto;
@@ -184,43 +192,38 @@ footer {
   <div class="list">
 
   <article class="dish">
-    <div class="thumb"><img src="assets/ai-bruschetta-classica.jpg" alt="Bruschetta classica" /></div>
+    <div class="thumb"><img src="assets/ai-bruschetta-classica.jpg" alt="Bruschetta classica" /><div class="disclaimer">„KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.“</div></div>
     <div class="meta">
       <div class="row"><h2>Bruschetta classica</h2><span class="price">9,90 €</span></div>
       <div class="section">Antipasti</div>
-      <div class="disclaimer">„KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.“</div>
     </div>
   </article>
   <article class="dish">
-    <div class="thumb"><img src="assets/ai-caprese.jpg" alt="Caprese con pomodoro, bufala e basilico" /></div>
+    <div class="thumb"><img src="assets/ai-caprese.jpg" alt="Caprese con pomodoro, bufala e basilico" /><div class="disclaimer">„KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.“</div></div>
     <div class="meta">
       <div class="row"><h2>Caprese con pomodoro, bufala e basilico</h2><span class="price">13,50 €</span></div>
       <div class="section">Antipasti</div>
-      <div class="disclaimer">„KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.“</div>
     </div>
   </article>
   <article class="dish">
-    <div class="thumb"><img src="assets/ai-pinsa-serrano.jpg" alt="Pinsa Serrano" /></div>
+    <div class="thumb"><img src="assets/ai-pinsa-serrano.jpg" alt="Pinsa Serrano" /><div class="disclaimer">„KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.“</div></div>
     <div class="meta">
       <div class="row"><h2>Pinsa Serrano</h2><span class="price">18,90 €</span></div>
       <div class="section">Pinsa</div>
-      <div class="disclaimer">„KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.“</div>
     </div>
   </article>
   <article class="dish">
-    <div class="thumb"><img src="assets/ai-ravioli-ricotta-spinaci.jpg" alt="Ravioli con ricotta, spinaci e pecorino" /></div>
+    <div class="thumb"><img src="assets/ai-ravioli-ricotta-spinaci.jpg" alt="Ravioli con ricotta, spinaci e pecorino" /><div class="disclaimer">„KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.“</div></div>
     <div class="meta">
       <div class="row"><h2>Ravioli con ricotta, spinaci e pecorino</h2><span class="price">16,90 €</span></div>
       <div class="section">Pasta Ripiena</div>
-      <div class="disclaimer">„KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.“</div>
     </div>
   </article>
   <article class="dish">
-    <div class="thumb"><img src="assets/ai-caramelle-porcini-castagne.jpg" alt="Caramelle ripieno di porcini, castagne e ricotta" /></div>
+    <div class="thumb"><img src="assets/ai-caramelle-porcini-castagne.jpg" alt="Caramelle ripieno di porcini, castagne e ricotta" /><div class="disclaimer">„KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.“</div></div>
     <div class="meta">
       <div class="row"><h2>Caramelle ripieno di porcini, castagne e ricotta</h2><span class="price">18,90 €</span></div>
       <div class="section">Pasta Ripiena</div>
-      <div class="disclaimer">„KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.“</div>
     </div>
   </article>
   </div>
