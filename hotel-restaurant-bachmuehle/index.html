@@ -81,6 +81,21 @@ h1 { margin:8px 0 4px; font-size:28px; font-weight:700; line-height:1.05; }
   object-position: center;
   background: #1a1a1a;
 }
+.thumb .placeholder {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px 10px;
+  background: #cfc4b4;
+  color: #5c5246;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  line-height: 1.3;
+  font-weight: 600;
+}
 .thumb .disclaimer {
   flex: 0 0 auto;
   margin: 0;
@@ -135,7 +150,7 @@ footer {
 
 <section class="page" id="before">
   <header class="header">
-    <div class="eyebrow">So sieht es heute aus</div>
+    <div class="eyebrow">Aktuell: Speisekarte ohne Gerichts-Bilder</div>
     <h1>Hotel-Restaurant Bachmühle</h1>
     <p class="tagline">Hotel restaurant · Fulda</p>
     <div class="addr">Künzeller Str. 133 · 36043 Fulda</div>
@@ -144,46 +159,46 @@ footer {
   <div class="list">
 
   <article class="dish">
-    <div class="thumb"><img src="assets/orig-schweineschnitzel-pilzragout.jpg" alt="Schweineschnitzel mit Pilzragoût" /></div>
+    <div class="thumb"><div class="placeholder">Speisekarte ohne Gerichts-Fotos</div></div>
     <div class="meta">
       <div class="row"><h2>Schweineschnitzel mit Pilzragoût</h2><span class="price">24 €</span></div>
       <div class="section">Hauptgerichte</div>
     </div>
   </article>
   <article class="dish">
-    <div class="thumb"><img src="assets/orig-filetsteak-grill.jpg" alt="Filetsteak vom Weiderind" /></div>
+    <div class="thumb"><div class="placeholder">Speisekarte ohne Gerichts-Fotos</div></div>
     <div class="meta">
       <div class="row"><h2>Filetsteak vom Weiderind</h2><span class="price">44 €</span></div>
       <div class="section">vom Grill</div>
     </div>
   </article>
   <article class="dish">
-    <div class="thumb"><img src="assets/orig-sylter-brot-kalbsflanke.jpg" alt="Sylter Brot mit Kalbsflanke" /></div>
+    <div class="thumb"><div class="placeholder">Speisekarte ohne Gerichts-Fotos</div></div>
     <div class="meta">
       <div class="row"><h2>Sylter Brot mit Kalbsflanke</h2><span class="price">33 €</span></div>
       <div class="section">Hauptgerichte</div>
     </div>
   </article>
   <article class="dish">
-    <div class="thumb"><img src="assets/orig-zitronen-moussetoertchen.jpg" alt="Zitronen-Moussetörtchen" /></div>
+    <div class="thumb"><div class="placeholder">Speisekarte ohne Gerichts-Fotos</div></div>
     <div class="meta">
       <div class="row"><h2>Zitronen-Moussetörtchen</h2><span class="price">13 €</span></div>
       <div class="section">Dessert</div>
     </div>
   </article>
   <article class="dish">
-    <div class="thumb"><img src="assets/orig-thunfisch-tatar-vorspeise.jpg" alt="Geräuchertes Thunfisch Tatar" /></div>
+    <div class="thumb"><div class="placeholder">Speisekarte ohne Gerichts-Fotos</div></div>
     <div class="meta">
       <div class="row"><h2>Geräuchertes Thunfisch Tatar</h2><span class="price">18 €</span></div>
       <div class="section">Vorspeisen</div>
     </div>
   </article>
   </div>
-  <footer>Before · alle Gerichte · volle Seitenhöhe</footer>
+  <footer>Before · Speisekarte ohne Gerichts-Fotos · volle Seitenhöhe</footer>
 </section>
 <section class="page" id="after">
   <header class="header">
-    <div class="eyebrow">Neue digitale Speisekarte</div>
+    <div class="eyebrow">Neue digitale Speisekarte · distanzierte Eigenbilder</div>
     <h1>Hotel-Restaurant Bachmühle</h1>
     <p class="tagline">Hotel restaurant · Fulda</p>
     <div class="addr">Künzeller Str. 133 · 36043 Fulda</div>
@@ -227,7 +242,7 @@ footer {
     </div>
   </article>
   </div>
-  <footer>After · Eigenbilder · volle Seitenhöhe</footer>
+  <footer>After · distanzierte Eigenbilder · volle Seitenhöhe</footer>
 </section>
 </body>
 </html>
