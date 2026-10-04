@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Brauereigaststätte HOPFENGLÜCK — Preview</title>
+<style>
+:root {
+  --ink:#1a1410; --paper:#f6efe4; --card:#fffdf8; --accent:#b84a1f;
+  --muted:#6e5c4d; --line:rgba(26,20,16,.1); --cta:#c2410c;
+}
+* { box-sizing:border-box; }
+html, body { margin:0; height:100%; }
+body { font-family:Georgia,"Times New Roman",serif; color:var(--ink); background:#111; }
+nav { position:sticky; top:0; z-index:5; display:flex; gap:8px; justify-content:center; padding:10px; background:rgba(0,0,0,.9); }
+nav a { font-family:system-ui,sans-serif; font-size:13px; color:#f6efe4; text-decoration:none; padding:8px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.2); }
+
+/* One screen/page = full height phone/menu card */
+.page {
+  width: min(420px, 100%);
+  margin: 16px auto;
+  background: var(--paper);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 24px 70px rgba(0,0,0,.5);
+  height: calc(100vh - 72px);
+  min-height: 720px;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  flex: 0 0 auto;
+  text-align: center;
+  padding: 18px 18px 14px;
+  background: linear-gradient(180deg, #f8f1e6, #f1e6d6);
+  border-bottom: 1px solid var(--line);
+}
+.eyebrow { font-family:system-ui,sans-serif; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); font-weight:700; }
+h1 { margin:8px 0 4px; font-size:28px; font-weight:700; line-height:1.05; }
+.tagline { margin:0; font-style:italic; color:var(--muted); font-size:14px; }
+.addr { margin-top:6px; font-family:system-ui,sans-serif; font-size:11px; color:var(--muted); }
+.badge {
+  display:inline-block; margin-top:10px; padding:4px 10px; border-radius:999px;
+  font-family:system-ui,sans-serif; font-size:10px; font-weight:700;
+}
+.badge.before { background:rgba(0,0,0,.08); color:#444; }
+.badge.after { background:rgba(184,74,31,.12); color:var(--accent); }
+
+.list {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px 14px;
+  min-height: 0;
+}
+.dish {
+  flex: 1 1 0;
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  gap: 10px;
+  align-items: stretch;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  min-height: 0;
+}
+.thumb {
+  position: relative;
+  background: #1a1a1a;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* full dish visible, no strip crop */
+  object-position: center;
+  background: #1a1a1a;
+}
+.thumb .placeholder {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px 10px;
+  background: #cfc4b4;
+  color: #5c5246;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+.thumb .source-note,
+.thumb .disclaimer {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 3px 4px 4px;
+  font-family: system-ui, sans-serif;
+  font-size: 8px;
+  color: #e8ded2;
+  line-height: 1.2;
+  text-align: center;
+  background: #1a1a1a;
+}
+.meta {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8px 10px 8px 0; min-width: 0;
+}
+.row { display:flex; justify-content:space-between; gap:8px; align-items:flex-start; }
+h2 { margin:0; font-size: clamp(12px, 2.1vh, 16px); color: var(--accent); line-height:1.2; }
+.price { font-family:system-ui,sans-serif; font-weight:700; font-size: clamp(11px, 1.8vh, 14px); white-space:nowrap; }
+.section { margin-top:3px; font-family:system-ui,sans-serif; font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:#9a8572; }
+.note { margin-top:4px; font-family:system-ui,sans-serif; font-size:9px; color:var(--muted); font-style:italic; line-height:1.25; }
+
+
+footer {
+  flex: 0 0 auto;
+  text-align:center; padding:8px 12px 12px;
+  font-family:system-ui,sans-serif; font-size:10px; color:var(--muted);
+}
+
+@page { size: A4; margin: 0; }
+@media print {
+  nav { display:none !important; }
+  body { background:#fff; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .page {
+    width: 100%; height: 100vh; min-height: 100vh; margin: 0; border-radius: 0; box-shadow: none;
+    page-break-after: always; break-after: page;
+  }
+  .page:last-of-type { page-break-after: auto; }
+  .header { padding: 10mm 12mm 6mm; }
+  h1 { font-size: 24px; }
+  .list { gap: 4mm; padding: 4mm 8mm 6mm; }
+  .dish { border-radius: 8px; grid-template-columns: 38% 1fr; }
+  h2 { font-size: 13px; }
+  .price { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#before">1 · Vorher</a>
+  <a href="#after">2 · Nachher</a>
+</nav>
+
+<section class="page" id="before">
+  <header class="header">
+    <div class="eyebrow">Tripadvisor-Nutzerfotos / visuelle Matches</div>
+    <h1>Brauereigaststätte HOPFENGLÜCK</h1>
+    <p class="tagline">Brauereigaststätte · Fulda-Frauenberg</p>
+    <div class="addr">Leipziger Str. 12 · 36037 Fulda-Frauenberg<br>+49 661 93366200 · hopfenglueck-fulda.de</div>
+<div><span class="badge before">Seite 1 · Vorher</span></div>
+  </header>
+  <div class="list">
+
+  <article class="dish" data-ref-note="Ref-Beilage sind Salzkartoffeln, nicht Kartoffelklöße. strong match.">
+    <div class="thumb"><img src="assets/orig-rinderroulade.jpg" alt="Hochstiftliche Rinderroulade — Tripadvisor-Nutzerfoto, visueller Match" /><div class="source-note">Tripadvisor-Nutzerfoto · visueller Match<br>Ref-Beilage sind Salzkartoffeln, nicht Kartoffelklöße. strong match.</div></div>
+    <div class="meta">
+      <div class="row"><h2>Hochstiftliche Rinderroulade</h2><span class="price">25,50 €</span></div>
+      <div class="section">Sattmacher</div>
+    </div>
+  </article>
+  <article class="dish" data-ref-note="strong match.">
+    <div class="thumb"><img src="assets/orig-kaesespaetzle.jpg" alt="Käsespätzlepfanne vegetarisch mit Röstzwiebeln — Tripadvisor-Nutzerfoto, visueller Match" /><div class="source-note">Tripadvisor-Nutzerfoto · visueller Match</div></div>
+    <div class="meta">
+      <div class="row"><h2>Käsespätzlepfanne vegetarisch mit Röstzwiebeln</h2><span class="price">16,50 €</span></div>
+      <div class="section">Sattmacher</div>
+    </div>
+  </article>
+  <article class="dish" data-ref-note="Apfelstücke im Schmarrn, kein separates Apfelmus. moderate.">
+    <div class="thumb"><img src="assets/orig-kaiserschmarrn.jpg" alt="Der absolute Schmarrnsinn — Tripadvisor-Nutzerfoto, visueller Match" /><div class="source-note">Tripadvisor-Nutzerfoto · visueller Match<br>Apfelstücke im Schmarrn, kein separates Apfelmus. moderate.</div></div>
+    <div class="meta">
+      <div class="row"><h2>Der absolute Schmarrnsinn — Kaiserschmarrn mit Apfelmus</h2><span class="price">12,50 €</span></div>
+      <div class="section">Sudpause – Dessert</div>
+    </div>
+  </article>
+  <article class="dish" data-ref-note="Ref ist Bacon-Rind-Burger mit Pommes, nicht Hirsch/Wildschwein, Camembert oder Preiselbeere. moderate. After shows one burger, not the three-burger table.">
+    <div class="thumb"><img src="assets/orig-bierkutscher-burger.jpg" alt="Bierkutscher Burger — Tripadvisor-Nutzerfoto, visueller Match" /><div class="source-note">Tripadvisor-Nutzerfoto · visueller Match<br>Ref ist Bacon-Rind-Burger mit Pommes, nicht Hirsch/Wildschwein, Camembert oder Preiselbeere. moderate.</div></div>
+    <div class="meta">
+      <div class="row"><h2>Bierkutscher Burger</h2><span class="price">23,50 €</span></div>
+      <div class="section">Sattmacher</div>
+    </div>
+  </article>
+  <article class="dish" data-ref-note="Ref ist Steak mit Kräuterbutter und Bratkartoffeln, nicht Pommes und Grillgemüse. moderate.">
+    <div class="thumb"><img src="assets/orig-brauhaus-steak.jpg" alt="Brauhaus-Steak — Tripadvisor-Nutzerfoto, visueller Match" /><div class="source-note">Tripadvisor-Nutzerfoto · visueller Match<br>Ref ist Steak mit Kräuterbutter und Bratkartoffeln, nicht Pommes und Grillgemüse. moderate.</div></div>
+    <div class="meta">
+      <div class="row"><h2>Brauhaus-Steak — 250 g Roastbeef, Brauhaus Pommes, Grillgemüse</h2><span class="price">36,00 €</span></div>
+      <div class="section">Sattmacher</div>
+    </div>
+  </article>
+  </div>
+  <footer>Vorher · Tripadvisor-Nutzerfotos / visuelle Matches · nicht die Fotos des Restaurants</footer>
+</section>
+<section class="page" id="after">
+  <header class="header">
+    <div class="eyebrow">Neu generiert</div>
+    <h1>Brauereigaststätte HOPFENGLÜCK</h1>
+    <p class="tagline">Brauereigaststätte · Fulda-Frauenberg</p>
+    <div class="addr">Leipziger Str. 12 · 36037 Fulda-Frauenberg<br>+49 661 93366200 · hopfenglueck-fulda.de</div>
+<div><span class="badge after">Seite 2 · Nachher</span></div>
+  </header>
+  <div class="list">
+
+  <article class="dish">
+    <div class="thumb"><img src="assets/ai-rinderroulade.jpg" alt="Hochstiftliche Rinderroulade" /><div class="disclaimer">KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.</div></div>
+    <div class="meta">
+      <div class="row"><h2>Hochstiftliche Rinderroulade</h2><span class="price">25,50 €</span></div>
+      <div class="section">Sattmacher</div>
+    </div>
+  </article>
+  <article class="dish">
+    <div class="thumb"><img src="assets/ai-kaesespaetzle.jpg" alt="Käsespätzlepfanne vegetarisch mit Röstzwiebeln" /><div class="disclaimer">KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.</div></div>
+    <div class="meta">
+      <div class="row"><h2>Käsespätzlepfanne vegetarisch mit Röstzwiebeln</h2><span class="price">16,50 €</span></div>
+      <div class="section">Sattmacher</div>
+    </div>
+  </article>
+  <article class="dish">
+    <div class="thumb"><img src="assets/ai-kaiserschmarrn.jpg" alt="Der absolute Schmarrnsinn — Kaiserschmarrn mit Apfelmus" /><div class="disclaimer">KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.</div></div>
+    <div class="meta">
+      <div class="row"><h2>Der absolute Schmarrnsinn — Kaiserschmarrn mit Apfelmus</h2><span class="price">12,50 €</span></div>
+      <div class="section">Sudpause – Dessert</div>
+    </div>
+  </article>
+  <article class="dish">
+    <div class="thumb"><img src="assets/ai-bierkutscher-burger.jpg" alt="Bierkutscher Burger" /><div class="disclaimer">KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.</div></div>
+    <div class="meta">
+      <div class="row"><h2>Bierkutscher Burger</h2><span class="price">23,50 €</span></div>
+      <div class="section">Sattmacher</div>
+    </div>
+  </article>
+  <article class="dish">
+    <div class="thumb"><img src="assets/ai-brauhaus-steak.jpg" alt="Brauhaus-Steak — 250 g Roastbeef, Brauhaus Pommes, Grillgemüse" /><div class="disclaimer">KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.</div></div>
+    <div class="meta">
+      <div class="row"><h2>Brauhaus-Steak — 250 g Roastbeef, Brauhaus Pommes, Grillgemüse</h2><span class="price">36,00 €</span></div>
+      <div class="section">Sattmacher</div>
+    </div>
+  </article>
+  </div>
+  <footer>Nachher · neu generierte KI-Bilder · volle Seitenhöhe</footer>
+</section>
+</body>
+</html>
