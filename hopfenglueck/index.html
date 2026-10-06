@@ -103,13 +103,16 @@ h1 { margin:8px 0 4px; font-size:28px; font-weight:700; line-height:1.05; }
   left: 0; right: 0; bottom: 0;
   z-index: 1;
   margin: 0;
-  padding: 3px 4px 4px;
+  padding: 3px 2px 4px;
   font-family: system-ui, sans-serif;
-  font-size: 8px;
+  font-size: min(8px, 1.95vw); /* always one line */
   color: #e8ded2;
   line-height: 1.2;
   text-align: center;
   background: #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .meta {
   display: flex; flex-direction: column; justify-content: center;
@@ -163,35 +166,35 @@ footer {
   <div class="list">
 
   <article class="dish" data-ref-note="Ref-Beilage sind Salzkartoffeln, nicht Kartoffelklöße. strong match.">
-    <div class="thumb"><img src="assets/orig-rinderroulade.jpg" alt="Hochstiftliche Rinderroulade — Tripadvisor-Nutzerfoto, visueller Match" /><div class="source-note">Tripadvisor-Nutzerfoto · visueller Match<br>Ref-Beilage sind Salzkartoffeln, nicht Kartoffelklöße. strong match.</div></div>
+    <div class="thumb"><img src="assets/orig-rinderroulade.jpg" alt="Hochstiftliche Rinderroulade — Tripadvisor-Nutzerfoto, visueller Match" /><div class="source-note">Tripadvisor-Nutzerfoto (visueller Match)</div></div>
     <div class="meta">
       <div class="row"><h2>Hochstiftliche Rinderroulade</h2><span class="price">25,50 €</span></div>
       <div class="section">Sattmacher</div>
     </div>
   </article>
   <article class="dish" data-ref-note="strong match.">
-    <div class="thumb"><img src="assets/orig-kaesespaetzle.jpg" alt="Käsespätzlepfanne vegetarisch mit Röstzwiebeln — Tripadvisor-Nutzerfoto, visueller Match" /><div class="source-note">Tripadvisor-Nutzerfoto · visueller Match</div></div>
+    <div class="thumb"><img src="assets/orig-kaesespaetzle.jpg" alt="Käsespätzlepfanne vegetarisch mit Röstzwiebeln — Tripadvisor-Nutzerfoto, visueller Match" /><div class="source-note">Tripadvisor-Nutzerfoto (visueller Match)</div></div>
     <div class="meta">
       <div class="row"><h2>Käsespätzlepfanne vegetarisch mit Röstzwiebeln</h2><span class="price">16,50 €</span></div>
       <div class="section">Sattmacher</div>
     </div>
   </article>
   <article class="dish" data-ref-note="Apfelstücke im Schmarrn, kein separates Apfelmus. moderate.">
-    <div class="thumb"><img src="assets/orig-kaiserschmarrn.jpg" alt="Der absolute Schmarrnsinn — Tripadvisor-Nutzerfoto, visueller Match" /><div class="source-note">Tripadvisor-Nutzerfoto · visueller Match<br>Apfelstücke im Schmarrn, kein separates Apfelmus. moderate.</div></div>
+    <div class="thumb"><img src="assets/orig-kaiserschmarrn.jpg" alt="Der absolute Schmarrnsinn — Tripadvisor-Nutzerfoto, visueller Match" /><div class="source-note">Tripadvisor-Nutzerfoto (visueller Match)</div></div>
     <div class="meta">
       <div class="row"><h2>Der absolute Schmarrnsinn — Kaiserschmarrn mit Apfelmus</h2><span class="price">12,50 €</span></div>
       <div class="section">Sudpause – Dessert</div>
     </div>
   </article>
   <article class="dish" data-ref-note="Ref ist Bacon-Rind-Burger mit Pommes, nicht Hirsch/Wildschwein, Camembert oder Preiselbeere. moderate. After shows one burger, not the three-burger table.">
-    <div class="thumb"><img src="assets/orig-bierkutscher-burger.jpg" alt="Bierkutscher Burger — Tripadvisor-Nutzerfoto, visueller Match" /><div class="source-note">Tripadvisor-Nutzerfoto · visueller Match<br>Ref ist Bacon-Rind-Burger mit Pommes, nicht Hirsch/Wildschwein, Camembert oder Preiselbeere. moderate.</div></div>
+    <div class="thumb"><img src="assets/orig-bierkutscher-burger.jpg" alt="Bierkutscher Burger — Tripadvisor-Nutzerfoto, visueller Match" /><div class="source-note">Tripadvisor-Nutzerfoto (visueller Match)</div></div>
     <div class="meta">
       <div class="row"><h2>Bierkutscher Burger</h2><span class="price">23,50 €</span></div>
       <div class="section">Sattmacher</div>
     </div>
   </article>
   <article class="dish" data-ref-note="Ref ist Steak mit Kräuterbutter und Bratkartoffeln, nicht Pommes und Grillgemüse. moderate.">
-    <div class="thumb"><img src="assets/orig-brauhaus-steak.jpg" alt="Brauhaus-Steak — Tripadvisor-Nutzerfoto, visueller Match" /><div class="source-note">Tripadvisor-Nutzerfoto · visueller Match<br>Ref ist Steak mit Kräuterbutter und Bratkartoffeln, nicht Pommes und Grillgemüse. moderate.</div></div>
+    <div class="thumb"><img src="assets/orig-brauhaus-steak.jpg" alt="Brauhaus-Steak — Tripadvisor-Nutzerfoto, visueller Match" /><div class="source-note">Tripadvisor-Nutzerfoto (visueller Match)</div></div>
     <div class="meta">
       <div class="row"><h2>Brauhaus-Steak — 250 g Roastbeef, Brauhaus Pommes, Grillgemüse</h2><span class="price">36,00 €</span></div>
       <div class="section">Sattmacher</div>
@@ -211,35 +214,35 @@ footer {
   <div class="list">
 
   <article class="dish">
-    <div class="thumb"><img src="assets/ai-rinderroulade.jpg" alt="Hochstiftliche Rinderroulade" /><div class="disclaimer">KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.</div></div>
+    <div class="thumb"><img src="assets/ai-rinderroulade.jpg" alt="Hochstiftliche Rinderroulade" /><div class="disclaimer">KI-generiertes Sample, keine Garantie</div></div>
     <div class="meta">
       <div class="row"><h2>Hochstiftliche Rinderroulade</h2><span class="price">25,50 €</span></div>
       <div class="section">Sattmacher</div>
     </div>
   </article>
   <article class="dish">
-    <div class="thumb"><img src="assets/ai-kaesespaetzle.jpg" alt="Käsespätzlepfanne vegetarisch mit Röstzwiebeln" /><div class="disclaimer">KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.</div></div>
+    <div class="thumb"><img src="assets/ai-kaesespaetzle.jpg" alt="Käsespätzlepfanne vegetarisch mit Röstzwiebeln" /><div class="disclaimer">KI-generiertes Sample, keine Garantie</div></div>
     <div class="meta">
       <div class="row"><h2>Käsespätzlepfanne vegetarisch mit Röstzwiebeln</h2><span class="price">16,50 €</span></div>
       <div class="section">Sattmacher</div>
     </div>
   </article>
   <article class="dish">
-    <div class="thumb"><img src="assets/ai-kaiserschmarrn.jpg" alt="Der absolute Schmarrnsinn — Kaiserschmarrn mit Apfelmus" /><div class="disclaimer">KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.</div></div>
+    <div class="thumb"><img src="assets/ai-kaiserschmarrn.jpg" alt="Der absolute Schmarrnsinn — Kaiserschmarrn mit Apfelmus" /><div class="disclaimer">KI-generiertes Sample, keine Garantie</div></div>
     <div class="meta">
       <div class="row"><h2>Der absolute Schmarrnsinn — Kaiserschmarrn mit Apfelmus</h2><span class="price">12,50 €</span></div>
       <div class="section">Sudpause – Dessert</div>
     </div>
   </article>
   <article class="dish">
-    <div class="thumb"><img src="assets/ai-bierkutscher-burger.jpg" alt="Bierkutscher Burger" /><div class="disclaimer">KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.</div></div>
+    <div class="thumb"><img src="assets/ai-bierkutscher-burger.jpg" alt="Bierkutscher Burger" /><div class="disclaimer">KI-generiertes Sample, keine Garantie</div></div>
     <div class="meta">
       <div class="row"><h2>Bierkutscher Burger</h2><span class="price">23,50 €</span></div>
       <div class="section">Sattmacher</div>
     </div>
   </article>
   <article class="dish">
-    <div class="thumb"><img src="assets/ai-brauhaus-steak.jpg" alt="Brauhaus-Steak — 250 g Roastbeef, Brauhaus Pommes, Grillgemüse" /><div class="disclaimer">KI-generiertes Sample. Visualisierung, kein 1:1-Garantie-Foto.</div></div>
+    <div class="thumb"><img src="assets/ai-brauhaus-steak.jpg" alt="Brauhaus-Steak — 250 g Roastbeef, Brauhaus Pommes, Grillgemüse" /><div class="disclaimer">KI-generiertes Sample, keine Garantie</div></div>
     <div class="meta">
       <div class="row"><h2>Brauhaus-Steak — 250 g Roastbeef, Brauhaus Pommes, Grillgemüse</h2><span class="price">36,00 €</span></div>
       <div class="section">Sattmacher</div>
