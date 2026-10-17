@@ -15,7 +15,6 @@ body { font-family:Georgia,"Times New Roman",serif; color:var(--ink); background
 nav { position:sticky; top:0; z-index:5; display:flex; gap:8px; justify-content:center; padding:10px; background:rgba(0,0,0,.9); }
 nav a { font-family:system-ui,sans-serif; font-size:13px; color:#f6efe4; text-decoration:none; padding:8px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.2); }
 
-/* One screen/page = full height phone/menu card */
 .page {
   width: min(420px, 100%);
   margin: 16px auto;
@@ -36,7 +35,7 @@ nav a { font-family:system-ui,sans-serif; font-size:13px; color:#f6efe4; text-de
   border-bottom: 1px solid var(--line);
 }
 .eyebrow { font-family:system-ui,sans-serif; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); font-weight:700; }
-h1 { margin:8px 0 4px; font-size:34px; font-weight:700; line-height:1.05; }
+h1 { margin:8px 0 4px; font-size:28px; font-weight:700; line-height:1.05; }
 .tagline { margin:0; font-style:italic; color:var(--muted); font-size:14px; }
 .addr { margin-top:6px; font-family:system-ui,sans-serif; font-size:11px; color:var(--muted); }
 .badge {
@@ -70,13 +69,35 @@ h1 { margin:8px 0 4px; font-size:34px; font-weight:700; line-height:1.05; }
   position: relative;
   background: #1a1a1a;
   min-height: 0;
+  height: 100%;
+  overflow: hidden;
 }
 .thumb img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: contain; /* full dish visible, no strip crop */
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   object-position: center;
   background: #1a1a1a;
+}
+.thumb .source-note,
+.thumb .disclaimer {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 4px 4px 5px;
+  font-family: system-ui, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  color: #f5ebe0;
+  line-height: 1.2;
+  text-align: center;
+  background: rgba(15,15,15,0.92);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .meta {
   display: flex; flex-direction: column; justify-content: center;
@@ -86,6 +107,7 @@ h1 { margin:8px 0 4px; font-size:34px; font-weight:700; line-height:1.05; }
 h2 { margin:0; font-size: clamp(12px, 2.1vh, 16px); color: var(--accent); line-height:1.2; }
 .price { font-family:system-ui,sans-serif; font-weight:700; font-size: clamp(11px, 1.8vh, 14px); white-space:nowrap; }
 .section { margin-top:3px; font-family:system-ui,sans-serif; font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:#9a8572; }
+.note { margin-top:4px; font-family:system-ui,sans-serif; font-size:9px; color:var(--muted); font-style:italic; line-height:1.25; }
 
 footer {
   flex: 0 0 auto;
@@ -103,7 +125,7 @@ footer {
   }
   .page:last-of-type { page-break-after: auto; }
   .header { padding: 10mm 12mm 6mm; }
-  h1 { font-size: 28px; }
+  h1 { font-size: 24px; }
   .list { gap: 4mm; padding: 4mm 8mm 6mm; }
   .dish { border-radius: 8px; grid-template-columns: 38% 1fr; }
   h2 { font-size: 13px; }
@@ -113,105 +135,107 @@ footer {
 </head>
 <body>
 <nav>
-  <a href="#before">1 · Original</a>
-  <a href="#after">2 · Neue Speisekarte</a>
+  <a href="#before">1 · Vorher</a>
+  <a href="#after">2 · Nachher</a>
 </nav>
 
 <section class="page" id="before">
   <header class="header">
-    <div class="eyebrow">So sieht es heute aus</div>
+    <div class="eyebrow">Nutzerfotos · visueller Match</div>
     <h1>Gaston im Karl</h1>
     <p class="tagline">Restaurant · Fulda</p>
     <div class="addr">Rabanusstraße 19 · 36037 Fulda</div>
-<div><span class="badge before">Seite 1 · Original</span></div>
+<div><span class="badge before">Seite 1 · Vorher</span></div>
   </header>
   <div class="list">
 
-  <article class="dish">
-    <div class="thumb"><img src="assets/orig-croissant.jpg" alt="Croissant" /></div>
+  <article class="dish" data-ref-notes="source_type: maps_user; origin: own_restaurant (Gaston im Karl). Plated grilled cheese with salad; variant Kimchi/Schinken/Forelle not legible.">
+    <div class="thumb"><img src="assets/orig-grilled-cheese-sandwich.jpg" alt="Grilled Cheese Sandwich — Nutzerfoto" /><div class="source-note">Google-Maps-Nutzerfoto (visueller Match)</div></div>
+    <div class="meta">
+      <div class="row"><h2>Grilled Cheese Sandwich</h2><span class="price">8,90 €</span></div>
+      <div class="section">Grilled Cheese Sandwiches</div>
+      <p class="note">Variante Kimchi / Schinken / Forelle-Käse</p>
+    </div>
+  </article>
+  <article class="dish" data-ref-notes="source_type: maps_user; origin: own_restaurant. Renamed to menu Hummus mit Ofenblumenkohl…">
+    <div class="thumb"><img src="assets/orig-hummus-ofenblumenkohl.jpg" alt="Hummus mit Ofenblumenkohl, Rucola, Haselnüssen & Sauerteigbrot — Nutzerfoto" /><div class="source-note">Google-Maps-Nutzerfoto (visueller Match)</div></div>
+    <div class="meta">
+      <div class="row"><h2>Hummus mit Ofenblumenkohl, Rucola, Haselnüssen & Sauerteigbrot</h2><span class="price">12,90 €</span></div>
+      <div class="section">Hummus</div>
+    </div>
+  </article>
+  <article class="dish" data-ref-notes="source_type: tripadvisor_user; origin: visual_match_other_restaurant (Café Glück Fulda). Cropped to plate.">
+    <div class="thumb"><img src="assets/orig-croissant.jpg" alt="Croissant — Nutzerfoto" /><div class="source-note">Tripadvisor-Nutzerfoto (visueller Match)</div></div>
     <div class="meta">
       <div class="row"><h2>Croissant</h2><span class="price">3,90 €</span></div>
       <div class="section">Snacks</div>
     </div>
   </article>
-  <article class="dish">
-    <div class="thumb"><img src="assets/orig-grilled-cheese-sandwich.jpg" alt="Grilled Cheese Sandwich" /></div>
+  <article class="dish" data-ref-notes="source_type: tripadvisor_user; origin: visual_match_other_restaurant (O' Petit Paris, Fulda).">
+    <div class="thumb"><img src="assets/orig-pain-au-chocolat.jpg" alt="Pain au Chocolat — Nutzerfoto" /><div class="source-note">Tripadvisor-Nutzerfoto (visueller Match)</div></div>
     <div class="meta">
-      <div class="row"><h2>Grilled Cheese Sandwich</h2><span class="price">8,90 €</span></div>
-      <div class="section">Grilled Cheese Sandwiches</div>
-    </div>
-  </article>
-  <article class="dish">
-    <div class="thumb"><img src="assets/orig-sourdough-salad.jpg" alt="Sauerteigbrot mit Salat" /></div>
-    <div class="meta">
-      <div class="row"><h2>Sauerteigbrot mit Salat</h2></div>
+      <div class="row"><h2>Pain au Chocolat</h2><span class="price">4,90 €</span></div>
       <div class="section">Snacks</div>
     </div>
   </article>
-  <article class="dish">
-    <div class="thumb"><img src="assets/orig-strawberry-tiramisu.jpg" alt="Erdbeer-Tiramisu" /></div>
+  <article class="dish" data-ref-notes="source_type: tripadvisor_user; origin: visual_match_other_restaurant (Tomate, Fulda).">
+    <div class="thumb"><img src="assets/orig-coeur-de-boeuf-tomaten.jpg" alt="Coeur-de-Bœuf-Tomaten mit Basilikumcreme in Tomatenwasser & Sauerteigbrot — Nutzerfoto" /><div class="source-note">Tripadvisor-Nutzerfoto (visueller Match)</div></div>
     <div class="meta">
-      <div class="row"><h2>Erdbeer-Tiramisu</h2></div>
-      <div class="section">Desserts</div>
-    </div>
-  </article>
-  <article class="dish">
-    <div class="thumb"><img src="assets/orig-tomato-bread.jpg" alt="Coeur-de-Bœuf-Tomaten" /></div>
-    <div class="meta">
-      <div class="row"><h2>Coeur-de-Bœuf-Tomaten</h2><span class="price">10,90 €</span></div>
+      <div class="row"><h2>Coeur-de-Bœuf-Tomaten mit Basilikumcreme in Tomatenwasser & Sauerteigbrot</h2><span class="price">10,90 €</span></div>
       <div class="section">Speisen</div>
     </div>
   </article>
   </div>
-  <footer>Before · alle Gerichte · volle Seitenhöhe</footer>
+  <footer>Vorher · Maps- / Tripadvisor-Nutzerfotos · visueller Match · keine Restaurant-Fotos</footer>
 </section>
 <section class="page" id="after">
   <header class="header">
-    <div class="eyebrow">Neue digitale Speisekarte</div>
+    <div class="eyebrow">Neu generiert</div>
     <h1>Gaston im Karl</h1>
     <p class="tagline">Restaurant · Fulda</p>
     <div class="addr">Rabanusstraße 19 · 36037 Fulda</div>
-<div><span class="badge after">Seite 2 · Neu designed</span></div>
+<div><span class="badge after">Seite 2 · Nachher</span></div>
   </header>
   <div class="list">
 
   <article class="dish">
-    <div class="thumb"><img src="assets/ai-croissant.jpg" alt="Croissant" /></div>
+    <div class="thumb"><img src="assets/ai-grilled-cheese-sandwich.jpg?v=2" alt="Grilled Cheese Sandwich" /><div class="disclaimer">KI-generiertes Sample, keine Garantie</div></div>
+    <div class="meta">
+      <div class="row"><h2>Grilled Cheese Sandwich</h2><span class="price">8,90 €</span></div>
+      <div class="section">Grilled Cheese Sandwiches</div>
+      <p class="note">Variante Kimchi / Schinken / Forelle-Käse</p>
+    </div>
+  </article>
+  <article class="dish">
+    <div class="thumb"><img src="assets/ai-hummus-ofenblumenkohl.jpg?v=2" alt="Hummus mit Ofenblumenkohl, Rucola, Haselnüssen & Sauerteigbrot" /><div class="disclaimer">KI-generiertes Sample, keine Garantie</div></div>
+    <div class="meta">
+      <div class="row"><h2>Hummus mit Ofenblumenkohl, Rucola, Haselnüssen & Sauerteigbrot</h2><span class="price">12,90 €</span></div>
+      <div class="section">Hummus</div>
+    </div>
+  </article>
+  <article class="dish">
+    <div class="thumb"><img src="assets/ai-croissant.jpg?v=2" alt="Croissant" /><div class="disclaimer">KI-generiertes Sample, keine Garantie</div></div>
     <div class="meta">
       <div class="row"><h2>Croissant</h2><span class="price">3,90 €</span></div>
       <div class="section">Snacks</div>
     </div>
   </article>
   <article class="dish">
-    <div class="thumb"><img src="assets/ai-grilled-cheese-sandwich.jpg" alt="Grilled Cheese Sandwich" /></div>
+    <div class="thumb"><img src="assets/ai-pain-au-chocolat.jpg?v=2" alt="Pain au Chocolat" /><div class="disclaimer">KI-generiertes Sample, keine Garantie</div></div>
     <div class="meta">
-      <div class="row"><h2>Grilled Cheese Sandwich</h2><span class="price">8,90 €</span></div>
-      <div class="section">Grilled Cheese Sandwiches</div>
-    </div>
-  </article>
-  <article class="dish">
-    <div class="thumb"><img src="assets/ai-sourdough-salad.jpg" alt="Sauerteigbrot mit Salat" /></div>
-    <div class="meta">
-      <div class="row"><h2>Sauerteigbrot mit Salat</h2></div>
+      <div class="row"><h2>Pain au Chocolat</h2><span class="price">4,90 €</span></div>
       <div class="section">Snacks</div>
     </div>
   </article>
   <article class="dish">
-    <div class="thumb"><img src="assets/ai-strawberry-tiramisu.jpg" alt="Erdbeer-Tiramisu" /></div>
+    <div class="thumb"><img src="assets/ai-coeur-de-boeuf-tomaten.jpg?v=2" alt="Coeur-de-Bœuf-Tomaten mit Basilikumcreme in Tomatenwasser & Sauerteigbrot" /><div class="disclaimer">KI-generiertes Sample, keine Garantie</div></div>
     <div class="meta">
-      <div class="row"><h2>Erdbeer-Tiramisu</h2></div>
-      <div class="section">Desserts</div>
-    </div>
-  </article>
-  <article class="dish">
-    <div class="thumb"><img src="assets/ai-tomato-bread.jpg" alt="Coeur-de-Bœuf-Tomaten" /></div>
-    <div class="meta">
-      <div class="row"><h2>Coeur-de-Bœuf-Tomaten</h2><span class="price">10,90 €</span></div>
+      <div class="row"><h2>Coeur-de-Bœuf-Tomaten mit Basilikumcreme in Tomatenwasser & Sauerteigbrot</h2><span class="price">10,90 €</span></div>
       <div class="section">Speisen</div>
     </div>
   </article>
   </div>
-  <footer>After · Eigenbilder · volle Seitenhöhe</footer>
+  <footer>Nachher · neu generierte KI-Bilder · volle Seitenhöhe</footer>
 </section>
 </body>
 </html>
