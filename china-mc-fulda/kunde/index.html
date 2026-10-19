@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>China MC Chop Suey — Speisekarte</title>
+<style>
+:root {
+  --ink:#1a1410; --paper:#f6efe4; --card:#fffdf8; --accent:#b84a1f;
+  --muted:#6e5c4d; --line:rgba(26,20,16,.1); --cta:#c2410c;
+}
+* { box-sizing:border-box; }
+html, body { margin:0; height:100%; }
+body { font-family:Georgia,"Times New Roman",serif; color:var(--ink); background:#111; }
+.page {
+  width: min(420px, 100%);
+  margin: 16px auto;
+  background: var(--paper);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 24px 70px rgba(0,0,0,.5);
+  height: calc(100vh - 32px);
+  min-height: 720px;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  flex: 0 0 auto;
+  text-align: center;
+  padding: 18px 18px 14px;
+  background: linear-gradient(180deg, #f8f1e6, #f1e6d6);
+  border-bottom: 1px solid var(--line);
+}
+.eyebrow { font-family:system-ui,sans-serif; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); font-weight:700; }
+h1 { margin:8px 0 4px; font-size:26px; font-weight:700; line-height:1.05; }
+.tagline { margin:0; font-style:italic; color:var(--muted); font-size:14px; }
+.addr { margin-top:6px; font-family:system-ui,sans-serif; font-size:11px; color:var(--muted); }
+.list {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px 14px;
+  min-height: 0;
+}
+.dish {
+  flex: 1 1 0;
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  gap: 10px;
+  align-items: stretch;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  min-height: 0;
+}
+.thumb {
+  position: relative;
+  background: #1a1a1a;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.thumb img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #1a1a1a;
+}
+.thumb .disclaimer {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 4px 4px 5px;
+  font-family: system-ui, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  color: #f5ebe0;
+  line-height: 1.2;
+  text-align: center;
+  background: rgba(15,15,15,0.92);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.meta {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8px 10px 8px 0; min-width: 0;
+}
+.row { display:flex; justify-content:space-between; gap:8px; align-items:flex-start; }
+h2 { margin:0; font-size: clamp(12px, 2.1vh, 16px); color: var(--accent); line-height:1.2; }
+.price { font-family:system-ui,sans-serif; font-weight:700; font-size: clamp(11px, 1.8vh, 14px); white-space:nowrap; }
+.section { margin-top:3px; font-family:system-ui,sans-serif; font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:#9a8572; }
+@page { size: A4; margin: 0; }
+@media print {
+  body { background:#fff; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html,body{height:297mm;}
+  .page {
+    width: 100%; height: 297mm !important; min-height: 0 !important; margin: 0; border-radius: 0; box-shadow: none;
+    overflow: hidden; page-break-after: auto; break-after: auto;
+  }
+  .header { padding: 10mm 12mm 6mm; }
+  h1 { font-size: 22px; }
+  .list { gap: 4mm; padding: 4mm 8mm 6mm; }
+  .dish { border-radius: 8px; grid-template-columns: 38% 1fr; }
+  h2 { font-size: 13px; }
+  .price { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<section class="page" id="after">
+  <header class="header">
+    <div class="eyebrow">Neue digitale Speisekarte</div>
+    <h1>China MC Chop Suey</h1>
+    <p class="tagline">Chinesisch &amp; Sushi · Fulda</p>
+    <div class="addr">Universitätsstraße 10 · 36037 Fulda<br>+49 661 9016090 · <a href="https://chop-suey-fulda.de/" style="color:inherit">chop-suey-fulda.de</a></div>
+  </header>
+  <div class="list">
+  <article class="dish">
+    <div class="thumb"><img src="../assets/ai-nudeln-knusprige-ente.jpg" alt="86 – Gebratene Nudeln mit knuspriger Ente, Eiern und Gemüse" /><div class="disclaimer">KI-generiertes Sample, keine Garantie</div></div>
+    <div class="meta">
+      <div class="row"><h2>86 – Gebratene Nudeln mit knuspriger Ente, Eiern und Gemüse</h2><span class="price">16,80 €</span></div>
+      <div class="section">Gebratene Nudel Gerichte</div>
+    </div>
+  </article>
+  <article class="dish">
+    <div class="thumb"><img src="../assets/ai-rindfleisch-zwiebeln.jpg" alt="106 – Rindfleisch gebraten mit Zwiebeln (scharf)" /><div class="disclaimer">KI-generiertes Sample, keine Garantie</div></div>
+    <div class="meta">
+      <div class="row"><h2>106 – Rindfleisch gebraten mit Zwiebeln (scharf)</h2><span class="price">17,50 €</span></div>
+      <div class="section">Spezialitäten des Hauses</div>
+    </div>
+  </article>
+  <article class="dish">
+    <div class="thumb"><img src="../assets/ai-haehnchen-knusprig-pikant.jpg" alt="35 – Hähnchen knusprig mit pikanter Soße und Gemüse (scharf), mit Reis" /><div class="disclaimer">KI-generiertes Sample, keine Garantie</div></div>
+    <div class="meta">
+      <div class="row"><h2>35 – Hähnchen knusprig mit pikanter Soße und Gemüse (scharf), mit Reis</h2><span class="price">14,50 €</span></div>
+      <div class="section">Knusprige Hähnchen Gerichte</div>
+    </div>
+  </article>
+  <article class="dish">
+    <div class="thumb"><img src="../assets/ai-sake-tempura-roll.jpg" alt="450 – Sake Tempura Roll (Lachs, Avocado, Gurke, Frischkäse in Tempurateig, Teriyakisoße)" /><div class="disclaimer">KI-generiertes Sample, keine Garantie</div></div>
+    <div class="meta">
+      <div class="row"><h2>450 – Sake Tempura Roll (Lachs, Avocado, Gurke, Frischkäse in Tempurateig, Teriyakisoße)</h2><span class="price">12,50 €</span></div>
+      <div class="section">Sushi – Tempura Roll</div>
+    </div>
+  </article>
+  <article class="dish">
+    <div class="thumb"><img src="../assets/ai-maki-set.jpg" alt="502 – Sushi Set 2: Sake Avocado (8x Sake Avocado Ura Maki, 6x Tekka Maki, 6x Kappa Maki)" /><div class="disclaimer">KI-generiertes Sample, keine Garantie</div></div>
+    <div class="meta">
+      <div class="row"><h2>502 – Sushi Set 2: Sake Avocado (8x Sake Avocado Ura Maki, 6x Tekka Maki, 6x Kappa Maki)</h2><span class="price">13,50 €</span></div>
+      <div class="section">Sushi Sets</div>
+    </div>
+  </article>
+  </div>
+</section>
+</body>
+</html>
